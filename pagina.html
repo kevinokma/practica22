@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRO</title>
+</head>
+<body>
+    <h1 id="nombres" style="font-family: 'Courier New', Courier, monospace;"></h1>
+    <h2 id="apellidos" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"></h2>
+    <h3 id="edad" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"></h3>
+    <a href="mailto:correo">Correo</a><br>
+    <a href="tel:telefono">Teléfono</a><br>
+
+    <script>
+        getParameter = (key)=>{
+                address = window.location.search;
+                parameterList = new URLSearchParams(address);
+                return parameterList.get(key);
+            }
+            console.log(getParameter("nombres"));
+            var nombres = getParameter("nombres");
+
+            console.log(getParameter("apellidos"));
+            var apellidos = getParameter("apellidos");
+
+            if(nombres != null){
+                document.getElementById("nombres").innerHTML = "" + nombres;
+            }
+            if(apellidos != null){
+                document.getElementById("apellidos").innerHTML = "" + apellidos;
+            }
+            var fecha = getParameter("fecha");
+            var arreglo = fecha.split("-");
+            fecha = arreglo[0];
+            document.getElementById("edad").innerHTML = "Tu edad es " + (2023 - fecha) + " años"
+    </script>
+</body>
+</html>
